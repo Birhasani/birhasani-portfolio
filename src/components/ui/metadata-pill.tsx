@@ -23,7 +23,7 @@ export function MetadataPill({
   return (
     <span
       className={cn(
-        "inline-flex min-h-8 items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.01em]",
+        "inline-flex min-h-7 items-center gap-1.5 rounded-lg border px-2.5 py-1 text-[0.6875rem] font-bold tracking-[0.02em]",
         tones[tone],
         className,
       )}

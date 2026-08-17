@@ -27,7 +27,7 @@ export function SectionHeading({
       {...props}
     >
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2 className="mt-3 font-display text-4xl leading-[1.05] tracking-[-0.025em] text-primary-text sm:text-5xl">
+      <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.03] text-primary-text">
         {title}
       </h2>
       {description ? (

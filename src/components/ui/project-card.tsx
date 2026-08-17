@@ -22,7 +22,7 @@ export function ProjectCard({ title, summary, href, status, tags, outcome, media
   return (
     <MotionCard>
       <article className={cn("group relative h-full overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_18px_48px_rgba(29,41,57,0.055)] transition-[border-color,box-shadow] duration-300 hover:border-orange/40 hover:shadow-[0_22px_56px_rgba(29,41,57,0.08)]", className)}>
-        <div className="aspect-video overflow-hidden border-b border-border bg-muted-surface">{media}</div>
+        {media ? <div className="overflow-hidden border-b border-border bg-muted-surface">{media}</div> : null}
         <div className="p-5 sm:p-7">
           <div className="flex flex-wrap gap-2"><MetadataPill tone="orange">{status}</MetadataPill>{tags.map((tag) => <MetadataPill key={tag} tone="neutral">{tag}</MetadataPill>)}</div>
           <h3 className="mt-6 font-display text-3xl leading-tight tracking-[-0.02em] text-primary-text">

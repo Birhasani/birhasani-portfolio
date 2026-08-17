@@ -3,13 +3,14 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { Container } from "@/components/ui/container";
+import { ControlledGif } from "@/components/ui/controlled-gif";
 import { MetadataPill } from "@/components/ui/metadata-pill";
 import { ProjectMedia } from "@/components/ui/project-media";
-import type { Project, ProjectAsset } from "@/data/projects";
+import type { Project, ProjectAsset, ProjectMotionAsset } from "@/data/projects";
 import { cn } from "@/lib/cn";
 
 export function CaseStudyHero({ project }: { project: Project }) {
-  return <header className="relative overflow-hidden border-b border-border py-16 sm:py-24"><Container><Link href="/work" className="inline-flex items-center gap-2 text-sm font-semibold text-dark-blue hover:underline">Work <span aria-hidden="true">/</span> {project.prominence === "featured" ? "Featured case study" : "Additional work"}</Link><div className="mt-9 grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-end"><div><MetadataPill tone="orange">{project.statusLabel}</MetadataPill><p className="mt-5 text-sm font-bold uppercase tracking-[0.12em] text-dark-blue">{project.title}</p><h1 className="mt-3 font-display text-5xl leading-[0.98] tracking-[-0.035em] text-primary-text sm:text-7xl">{project.caseStudyTitle ?? project.title}</h1><p className="mt-6 max-w-3xl text-xl leading-8 text-secondary-text">{project.caseStudySubtitle ?? project.summary}</p>{project.externalHref ? <a className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-dark-blue underline decoration-blue/30 decoration-2 underline-offset-4 hover:decoration-blue" href={project.externalHref} target="_blank" rel="noreferrer">View project repository <ArrowUpRight className="size-4" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a> : null}</div><p className="border-l-2 border-orange pl-5 text-lg leading-8 text-primary-text">{project.outcome}</p></div><div className="mt-12 overflow-hidden rounded-3xl border border-border"><ProjectMedia asset={project.heroAsset} /></div></Container></header>;
+  return <header className="relative overflow-hidden border-b border-border py-16 sm:py-24"><Container><Link href="/work" className="inline-flex items-center gap-2 text-sm font-semibold text-dark-blue hover:underline">Work <span aria-hidden="true">/</span> {project.prominence === "featured" ? "Featured case study" : "Additional work"}</Link><div className="mt-9 grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-end"><div><MetadataPill tone="orange">{project.statusLabel}</MetadataPill><p className="mt-5 text-sm font-bold uppercase tracking-[0.12em] text-dark-blue">{project.title}</p><h1 className="mt-3 font-display text-5xl leading-[0.98] tracking-[-0.035em] text-primary-text sm:text-7xl">{project.caseStudyTitle ?? project.title}</h1><p className="mt-6 max-w-3xl text-xl leading-8 text-secondary-text">{project.caseStudySubtitle ?? project.summary}</p>{project.externalHref ? <a className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-dark-blue underline decoration-blue/30 decoration-2 underline-offset-4 hover:decoration-blue" href={project.externalHref} target="_blank" rel="noreferrer">View project repository <ArrowUpRight className="size-4" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a> : null}</div><p className="border-l-2 border-orange pl-5 text-lg leading-8 text-primary-text">{project.outcome}</p></div>{project.heroAsset ? <div className="mt-12 overflow-hidden rounded-3xl border border-border"><ProjectMedia asset={project.heroAsset} priority /></div> : null}</Container></header>;
 }
 
 export function ProjectMetadata({ project }: { project: Project }) {
@@ -35,6 +36,10 @@ export function ImageFigure({ asset, caption }: { asset: ProjectAsset; caption?:
 
 export function ImageGallery({ assets }: { assets: readonly ProjectAsset[] }) {
   return <div className="grid gap-5 md:grid-cols-2">{assets.map((item) => <ImageFigure asset={item} key={item.filename} />)}</div>;
+}
+
+export function MotionGallery({ assets }: { assets: readonly ProjectMotionAsset[] }) {
+  return <div className="grid gap-5 sm:grid-cols-3">{assets.map((asset) => <figure className="rounded-3xl border border-border bg-muted-surface p-6 text-center" key={asset.gifSrc}><ControlledGif alt={asset.alt} gifSrc={asset.gifSrc} posterSrc={asset.posterSrc} /><figcaption className="mt-4 font-semibold text-primary-text">{asset.label}</figcaption></figure>)}</div>;
 }
 
 export function BeforeAfter({ before, after, description }: { before: ProjectAsset; after: ProjectAsset; description: string }) {

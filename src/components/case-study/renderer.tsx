@@ -1,4 +1,4 @@
-import { BeforeAfter, ImageFigure, ImageGallery, InsightCards, MetricComparison, NarrativeSection, ProcessSteps, QuoteOrFeedback, Reflection, SUSComparison, Transformation } from "@/components/case-study/blocks";
+import { BeforeAfter, ImageFigure, ImageGallery, InsightCards, MetricComparison, MotionGallery, NarrativeSection, ProcessSteps, QuoteOrFeedback, Reflection, SUSComparison, Transformation } from "@/components/case-study/blocks";
 import type { CaseStudySection } from "@/data/projects";
 
 export function CaseStudyRenderer({ sections }: { sections: readonly CaseStudySection[] }) {
@@ -9,6 +9,7 @@ export function CaseStudyRenderer({ sections }: { sections: readonly CaseStudySe
       case "insights": content = <InsightCards items={section.items} />; break;
       case "figure": content = <ImageFigure asset={section.asset} caption={section.caption} />; break;
       case "gallery": content = <ImageGallery assets={section.assets} />; break;
+      case "motion-gallery": content = <MotionGallery assets={section.assets} />; break;
       case "before-after": content = <BeforeAfter before={section.before} after={section.after} description={section.description} />; break;
       case "process": content = <ProcessSteps steps={section.steps} />; break;
       case "metrics": content = <MetricComparison comparisons={section.comparisons} note={section.note} />; break;

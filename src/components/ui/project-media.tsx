@@ -1,29 +1,18 @@
 import Image from "next/image";
 
-import { AssetPlaceholder } from "@/components/ui/asset-placeholder";
 import type { ProjectAsset } from "@/data/projects";
 
-export function ProjectMedia({ asset }: { asset: ProjectAsset }) {
-  if (asset.placeholder) {
-    return (
-      <AssetPlaceholder
-        alt={asset.alt}
-        filename={asset.filename}
-        ratio={asset.ratio}
-      />
-    );
-  }
-
-  const isSquare = asset.ratio === "1:1";
-
+export function ProjectMedia({ asset, priority = false }: { asset: ProjectAsset; priority?: boolean }) {
   return (
-    <div className={isSquare ? "relative aspect-square" : "relative aspect-video"}>
+    <div className="bg-muted-surface">
       <Image
         alt={asset.alt}
-        className="object-cover"
-        fill
+        className="h-auto w-full object-contain"
+        height={asset.height}
+        priority={priority}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 67vw, 960px"
         src={`/${asset.filename}`}
+        width={asset.width}
       />
     </div>
   );
