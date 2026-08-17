@@ -1,6 +1,7 @@
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const productionSiteUrl = "https://birhasani-portfolio.vercel.app";
 
-export const siteUrl = (configuredSiteUrl || "http://localhost:3000").replace(/\/$/, "");
+export const siteUrl = (configuredSiteUrl || productionSiteUrl).replace(/\/$/, "");
 
 export const siteConfig = {
   name: "Birhasani Raka Abiansyah",
