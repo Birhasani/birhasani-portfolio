@@ -2,6 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -73,11 +74,14 @@ export function SiteHeader() {
           aria-label={`${siteConfig.name}, home`}
           onClick={() => setIsOpen(false)}
         >
-          <span
-            className="grid size-9 shrink-0 place-items-center rounded-xl bg-primary-text font-editorial text-xl text-white transition-colors group-hover:bg-dark-orange"
-            aria-hidden="true"
-          >
-            B
+          <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-border bg-surface" aria-hidden="true">
+            <Image
+              src="/images/profile/birhasani-raka-abiansyah.webp"
+              alt=""
+              fill
+              sizes="36px"
+              className="scale-[1.65] object-cover object-[50%_24%] transition-transform duration-200 group-hover:scale-[1.72]"
+            />
           </span>
           <span className="min-w-0">
             <span className="block truncate text-sm font-bold tracking-[-0.01em] text-primary-text">
