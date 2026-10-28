@@ -52,7 +52,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
   return <article>
     <JsonLd data={creativeWorkJsonLd} />
     <CaseStudyHero project={project} />
-    <Container className="space-y-10 py-14 sm:py-20"><ProjectMetadata project={project} /><OutcomeStrip points={project.outcomePoints} /></Container>
+    <Container className="space-y-10 py-14 sm:py-20"><ProjectMetadata project={project} /><OutcomeStrip points={project.outcomePoints} /><nav aria-label="Case study sections" className="rounded-2xl border border-border bg-muted-surface p-5"><p className="text-xs font-bold uppercase tracking-[0.12em] text-dark-blue">On this page</p><ol className="mt-4 grid gap-2 text-sm font-semibold text-secondary-text sm:grid-cols-2 lg:grid-cols-3">{project.sections.map((section, index) => <li key={section.id}><a className="inline-flex gap-2 rounded-md py-1 hover:text-primary-text hover:underline" href={`#${section.id}`}><span className="text-dark-orange">{String(index + 1).padStart(2, "0")}</span>{section.title}</a></li>)}</ol></nav></Container>
     <Container className="pb-24 sm:pb-32"><CaseStudyRenderer sections={project.sections} /></Container>
     {nextProject ? <NextProject project={nextProject} /> : null}
   </article>;

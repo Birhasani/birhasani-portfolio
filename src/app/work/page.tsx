@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import type { Metadata } from "next";
 
 import { WorkCard } from "@/components/work/work-card";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return <>
+    <section className="border-b border-border bg-background-warm py-8" aria-labelledby="work-tracks-heading"><Container><div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="eyebrow">Choose a track</p><h2 id="work-tracks-heading" className="mt-2 text-xl font-extrabold text-primary-text">See the kind of problems I like to solve.</h2></div><div className="flex flex-wrap gap-2 text-sm font-bold"><a className="rounded-full border border-border bg-white px-4 py-2 hover:border-orange" href="/work/telusur-mahija">Product systems</a><a className="rounded-full border border-border bg-white px-4 py-2 hover:border-orange" href="/work/avalon-ai-matahari">AI experiences</a><a className="rounded-full border border-border bg-white px-4 py-2 hover:border-orange" href="/work/balimask3d">Research &amp; engineering</a></div></div></Container></section>
     <header className="border-b border-border py-20 sm:py-28"><Container><p className="eyebrow">Selected work</p><h1 className="mt-4 max-w-5xl font-display text-5xl leading-[0.98] tracking-[-0.035em] text-primary-text sm:text-7xl">Product design grounded in evidence and carried through delivery.</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-secondary-text">Six projects across production, implemented, event-deployed, academic, and research work—with contribution and status stated clearly.</p></Container></header>
     <section className="py-20 sm:py-28"><Container><SectionHeading eyebrow="Featured case studies" title="Detailed work across systems, AI products, and mobility research." description="These projects have dedicated case-study foundations and verified project summaries." /><div className="mt-12 space-y-7">{featuredCaseStudies.map((project) => <WorkCard featured key={project.slug} project={project} />)}</div></Container></section>
     <section className="border-t border-border bg-muted-surface py-20 sm:py-28"><Container><SectionHeading eyebrow="Additional work" title="Supporting projects with distinct delivery contexts." description="No filters are needed for this focused set of six projects." /><div className="mt-12 grid gap-6 lg:grid-cols-3">{supportingWork.map((project) => <WorkCard key={project.slug} project={project} />)}</div></Container></section>

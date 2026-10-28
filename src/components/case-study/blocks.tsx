@@ -22,8 +22,8 @@ export function OutcomeStrip({ points }: { points: readonly string[] }) {
   return <ul className="grid overflow-hidden rounded-3xl border border-border bg-soft-orange md:grid-cols-3">{points.map((point, index) => <li className="flex gap-4 border-b border-orange/15 p-6 last:border-0 md:border-b-0 md:border-r md:last:border-r-0" key={point}><span className="font-display text-2xl text-dark-orange">{String(index + 1).padStart(2, "0")}</span><span className="font-semibold leading-6 text-primary-text">{point}</span></li>)}</ul>;
 }
 
-export function NarrativeSection({ eyebrow, title, children, className }: { eyebrow?: string; title: string; children: ReactNode; className?: string }) {
-  return <section className={cn("grid gap-6 border-t border-border pt-10 md:grid-cols-[0.7fr_1.3fr] md:gap-14", className)}>{<div>{eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}<h2 className="mt-3 font-display text-3xl leading-tight text-primary-text sm:text-4xl">{title}</h2></div>}<div className="space-y-5 text-lg leading-8 text-secondary-text">{children}</div></section>;
+export function NarrativeSection({ id, eyebrow, title, children, className }: { id?: string; eyebrow?: string; title: string; children: ReactNode; className?: string }) {
+  return <section id={id} className={cn("scroll-mt-28 grid gap-6 border-t border-border pt-10 md:grid-cols-[0.7fr_1.3fr] md:gap-14", className)}>{<div>{eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}<h2 className="mt-3 font-display text-3xl leading-tight text-primary-text sm:text-4xl">{title}</h2></div>}<div className="space-y-5 text-lg leading-8 text-secondary-text">{children}</div></section>;
 }
 
 export function InsightCards({ items }: { items: readonly { title: string; body: string }[] }) {

@@ -18,6 +18,6 @@ export function CaseStudyRenderer({ sections }: { sections: readonly CaseStudySe
       case "transformation": content = <Transformation from={section.from} to={section.to} note={section.note} />; break;
       case "reflection": content = <Reflection learned={section.learned} next={section.next} />; break;
     }
-    return <NarrativeSection eyebrow={section.eyebrow} title={section.title} key={section.id}>{content}</NarrativeSection>;
+    return <NarrativeSection id={section.id} eyebrow={section.eyebrow} title={section.title} key={section.id}>{content}</NarrativeSection>;
   })}</div>;
 }

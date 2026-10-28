@@ -6,7 +6,7 @@ export const siteUrl = (configuredSiteUrl || productionSiteUrl).replace(/\/$/, "
 export const siteConfig = {
   name: "Birhasani Raka Abiansyah",
   shortName: "Birhasani Raka",
-  role: "Product & UI/UX Designer",
+  role: "Software Engineer · Product & UI/UX",
   location: "Surabaya, Indonesia",
   email: "birhasani8ra@gmail.com",
   linkedin: "https://linkedin.com/in/birhasani-raka-abiansyah",
@@ -15,7 +15,7 @@ export const siteConfig = {
 } as const;
 
 export const siteDescription =
-  "Product and UI/UX Designer in Surabaya combining UX research, interaction design, design systems, and front-end understanding.";
+  "Software Engineer in Surabaya combining product thinking, UX research, interface systems, front-end delivery, and AI product exploration.";
 
 export const navigation = [
   { label: "Work", href: "/work" },

@@ -9,7 +9,7 @@ import { MetadataPill } from "@/components/ui/metadata-pill";
 import { ProjectMedia } from "@/components/ui/project-media";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { capabilities, featuredProjects, hero, supportingProjects } from "@/data/home";
+import { capabilities, featuredProjects, hero, stackGroups, supportingProjects } from "@/data/home";
 import { getProject, type Project } from "@/data/projects";
 import { siteConfig } from "@/data/site";
 
@@ -68,9 +68,18 @@ export default function Home() {
 
       <section className="border-y border-border bg-muted-surface py-24 sm:py-28">
         <Container>
-          <Reveal><SectionHeading eyebrow="Capabilities" title="A connected practice from evidence to delivery." description="I move between research, interface decisions, reusable systems, and implementation collaboration without losing sight of the product problem." /></Reveal>
+          <Reveal><SectionHeading eyebrow="How I work" title="A connected practice from evidence to delivery." description="I move between engineering, research, interface decisions, reusable systems, and implementation without losing sight of the product problem." /></Reveal>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {capabilities.map((capability, index) => <Reveal delay={index * 0.055} key={capability}><article className={`h-full min-h-44 rounded-2xl border border-border p-5 ${index === 0 || index === 3 ? "bg-soft-blue" : index === 1 || index === 4 ? "bg-soft-orange" : "bg-white"}`}><span className="block h-1 w-8 rounded-full bg-orange" aria-hidden="true" /><p className="mt-8 text-base font-extrabold leading-6 text-primary-text">{capability}</p><span className="mt-4 block text-xs font-bold text-dark-blue">0{index + 1}</span></article></Reveal>)}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-background-warm py-20 sm:py-24" aria-labelledby="stack-heading">
+        <Container>
+          <Reveal><SectionHeading eyebrow="Working stack" title="The tools behind the work." description="A practical stack for turning product questions into understandable, shippable experiences." /></Reveal>
+          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {stackGroups.map((group) => <article className="bg-white p-6" key={group.label}><p className="text-xs font-bold uppercase tracking-[0.12em] text-dark-blue">{group.label}</p><p className="mt-4 text-sm font-semibold leading-6 text-primary-text">{group.items}</p></article>)}
           </div>
         </Container>
       </section>

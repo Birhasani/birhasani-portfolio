@@ -8,10 +8,10 @@ export type PortfolioProject = {
 };
 
 export const hero = {
-  eyebrow: "Product & UI/UX Designer",
-  headline: "Designing clear digital experiences for complex systems.",
-  body: "I combine UX research, interaction design, design systems, and front-end understanding to create digital products that are clear, usable, and ready for implementation.",
-  primaryCta: "View Selected Work",
+  eyebrow: "Software Engineer · Product, UI/UX & AI",
+  headline: "I build clear digital products for complex systems.",
+  body: "I work across product discovery, UX research, interface systems, front-end delivery, and AI-enabled experiences—connecting the why, what, and how of a product in one practice.",
+  primaryCta: "Explore selected work",
   secondaryCta: "Download Resume",
 } as const;
 
@@ -29,11 +29,18 @@ export const featuredProjects: readonly PortfolioProject[] = [
 ] as const;
 
 export const capabilities = [
-  "UX Research & Product Discovery",
+  "Software Engineering",
+  "Product & UX Strategy",
   "Interaction & Interface Design",
   "Design Systems",
-  "Usability Testing",
-  "Design-to-Development Collaboration",
+  "AI & Emerging Technology",
+] as const;
+
+export const stackGroups = [
+  { label: "Build", items: "TypeScript · React · Next.js · Tailwind CSS" },
+  { label: "Design", items: "Figma · Design systems · Prototyping · Usability testing" },
+  { label: "AI & research", items: "AI product flows · Behavioral data · 3D reconstruction" },
+  { label: "Delivery", items: "Git · WordPress · Responsive UI · Accessibility" },
 ] as const;
 
 export const supportingProjects: readonly PortfolioProject[] = [
